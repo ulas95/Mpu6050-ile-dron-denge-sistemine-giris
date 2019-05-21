@@ -26,7 +26,9 @@ const long interval = 50;
 int x ;
 int xeski;
 int y; 
+
 void setup() {
+ //mpu6050 baslangıç ayarları yapılıyor
   Wire.begin();
   Wire.beginTransmission(MPU_addr);
   Wire.write(0x6B);
@@ -37,7 +39,9 @@ void setup() {
   Wire.write(0x1C);
   Wire.write(0x00);
   Wire.endTransmission(true);
+  
   Serial.begin(9600);
+  //motor pin cıkısları
   pinMode(3,OUTPUT);
   pinMode(5,OUTPUT);
 }
@@ -52,6 +56,7 @@ void loop() {
     Wire.write(0x3B);
     Wire.endTransmission(false);
     Wire.requestFrom(MPU_addr, 2, true);
+    //mpudan x eksenine ait veriler alınıyor
     int16_t XAxisFull =  (Wire.read() << 8 | Wire.read());
  
     float XAxisFinal = (float) XAxisFull / 16384.0;
