@@ -63,9 +63,9 @@ void loop() {
  
  
     int XAxis_Filtered = general_filter(c_avg, c_med, XAxisFull);
-    int XAxis_kalman = kalman_filter(XAxisFull);
-    int XAxis_movavg = mov_avg(c_avg, XAxisFull);
-    int XAxis_median = median(c_med, XAxisFull);
+    //int XAxis_kalman = kalman_filter(XAxisFull);
+    //int XAxis_movavg = mov_avg(c_avg, XAxisFull);
+    //int XAxis_median = median(c_med, XAxisFull);
  
     Serial.print(XAxis_Filtered);
     Serial.print("\t");
